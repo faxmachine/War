@@ -39,6 +39,14 @@ public class MasterDeck
    }
    
    /**
+     * get a card at a certain index
+     *
+     */     
+   public Card getCard(int i){
+       return deck.get(i);
+   }
+   
+   /**
      * Add a card to the bottom of the pile
      * @param c the card to be added
      */
@@ -65,10 +73,10 @@ public class MasterDeck
    {  
       return deck.size();
    }
+   
    /** 
-     * Randomize the order of Cards in Deck
-     */
-
+   * Randomize the order of Cards in Deck
+   */
    public void shuffle()
    {
       int randNum;
@@ -95,11 +103,13 @@ public class MasterDeck
    public static void main(String [] args) 
    {
       MasterDeck deck = new MasterDeck();
+      deck.freshDeck();
+      deck.shuffle();
       System.out.println(deck.isEmpty());
       
-      //for(int i=0; i<52 ;i++){
-      //    System.out.println(deck.dealCard().getFrontFile());
-      //}
+      for(int i=0; i<52 ;i++){
+          System.out.println(deck.getCard(i).getValue());
+      }
       
    }
 }

@@ -65,6 +65,10 @@ public class Card{
       return rank + suit + ".jpg";
     }
     
+    public int getValue(){
+        return value;
+    }
+    
     public static void main(String Args[]){
         Card c = new Card(51);
         
