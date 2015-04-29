@@ -50,21 +50,25 @@ public class Game{
         pile1.addCard(player1.dealCard());
         pile2.addCard(player2.dealCard());
         
+        // print the results to the command line
+        System.out.println("Player 1: "+pile1.getCard(0).getValue()+
+        "   Player 2: "+pile2.getCard(0).getValue());
+        
         // if player1 wins
         if(pile1.getCard(0).getValue() > pile2.getCard(0).getValue()){
             // add cards to player2's deck
-            player2.addCard(pile1.dealCard());
-            player2.addCard(pile2.dealCard());
+            takePile(player2);
             
             winner = "player1";
+            return winner;
         }
             
         else if(pile2.getCard(0).getValue() > pile1.getCard(0).getValue()){
             // add cards to player2's deck
-            player1.addCard(pile1.dealCard());
-            player1.addCard(pile2.dealCard());
+            takePile(player1);
             
             winner = "player2";
+            return winner;
         }
         
         // otherwise there is a war
@@ -75,7 +79,57 @@ public class Game{
     /** War
     */
     public String war(){
+        // let the war be known in the console
+        System.out.println("War!");
+        
+        // make a winner
+        String winner;
+        
+        // each player plays a card (face down)
+        pile1.addCard(0,player1.dealCard());
+        pile2.addCard(0,player2.dealCard());
+        
+        // each player plays a card (face up)
+        pile1.addCard(0,player1.dealCard());
+        pile2.addCard(0,player2.dealCard());
+        
+        System.out.println("Player 1: "+pile1.getCard(0).getValue()+
+        "   Player 2: "+pile2.getCard(0).getValue());
+                
+        // if player1 wins
+        if(pile1.getCard(0).getValue() > pile2.getCard(0).getValue()){
+            // add cards to player2's deck
+            takePile(player2);
+            
+            winner = "player1";
+            return winner;
+        }
+        
+        // ok, this looks really confusing but it is just comparing
+        else if(pile2.getCard(0).getValue() > pile1.getCard(0).getValue()){
+            // add cards to player2's deck
+            takePile(player1);
+            
+            winner = "player2";
+            return winner;
+        }
+        
+        // otherwise there is a war
+        else 
+           return  war();
+        
+    }
     
+    /** take all cards in pile
+    */
+    public void takePile(MasterDeck player){
+        for(int i = 0;i<pile1.cardsRemaining();i++){
+            player.addCard(pile1.dealCard());
+        }
+        
+        for(int i = 0; i<pile2.cardsRemaining();i++){
+            player.addCard(pile2.dealCard());
+        }
     }
     
     /** get player1
@@ -95,10 +149,7 @@ public class Game{
         
         game.deal();
         
-        for(int i=0; i<26 ;i++){
-          System.out.println(game.getPlayer2().dealCard().getFrontFile());
-      }
-
+        System.out.println(game.play());
         
     }
 }

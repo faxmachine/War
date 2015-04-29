@@ -53,6 +53,14 @@ public class MasterDeck
    public void addCard(Card c){
        deck.add(c);
    }
+   
+   /**
+     * an overloaded version of addCard for a specific index
+     * @param c the card to be added
+     */
+   public void addCard(int i, Card c){
+       deck.add(i,c);
+   }
      
    
    /** 
