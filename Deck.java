@@ -8,8 +8,7 @@
 import java.util.Random;
 import java.util.ArrayList;
 
-public class Deck 
-{
+public class Deck {
    /** 
    *  Number of cards in standard deck {@value #CARDS_IN_DECK}
    **/
@@ -23,9 +22,7 @@ public class Deck
     * are in a sorted order.  The shuffle() method can be called to
     * randomize the order.  
     */
-   public Deck()
-   {
-            
+   public Deck(){         
    }
    
    /** 

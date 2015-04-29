@@ -29,7 +29,8 @@ public class Game{
     }
     
     /** deal the cards to the players
-    */
+     *
+     */
     public void deal(){
        // begin dealing all cards to each of the players
        while(!(master.isEmpty())){
@@ -43,7 +44,7 @@ public class Game{
     /** A general play between the two players. two cards from each of the players 
       *  decks are pulled and placed in their rescective piles
       *  @return winner the winner of the play
-    */
+      */
     public String play(){
         // make a string for the winner
         String winner;
@@ -79,7 +80,8 @@ public class Game{
     }
     
     /** War
-    */
+     *
+     */
     public String war(){
         // let the war be known in the console
         System.out.println("War!");
@@ -123,7 +125,8 @@ public class Game{
     }
     
     /** take all cards in pile
-    */
+     *
+     */
     public void takePile(MasterDeck player){
         for(int i = 0;i<pile1.cardsRemaining();i++){
             player.addCard(pile1.dealCard());
@@ -135,17 +138,33 @@ public class Game{
     }
     
     /** get player1
-    */
+     *
+     */
     public MasterDeck getPlayer1(){
         return player1;
     } 
     
     /** get player2
-    */
+     *
+     */
     public MasterDeck getPlayer2(){
         return player2;
-    } 
+    }
     
+    /** get pile1
+     *
+     */
+    public MasterDeck getPile1(){
+        return pile1;
+    }
+    
+    /** get pile2
+     *
+     */
+    public MasterDeck getPile2(){
+        return pile2;
+    }
+ 
     public static void main(String Args[]){
         Game game = new Game();
         

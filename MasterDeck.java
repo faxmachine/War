@@ -2,14 +2,13 @@
  * Representation of a Deck of cards.  
  * Initialized to a standard 52 card deck. 
  *
- * @author Jackie Horton
+ * @author Jackie Horton / Ben Carroll
  */
 
 import java.util.Random;
 import java.util.ArrayList;
 
-public class MasterDeck 
-{
+public class MasterDeck {
    /** 
    *  Number of cards in standard deck {@value #CARDS_IN_DECK}
    **/
@@ -27,15 +26,14 @@ public class MasterDeck
    {
             deck = new ArrayList<Card>();
    }
+   
    /**
     * Create a new collection of 52 cards, in sorted order
     */
-   public void freshDeck()
-   {
+   public void freshDeck(){
       for(int i=0; i<CARDS_IN_DECK; i++){
           deck.add(new Card(i));
-      }     
-   
+      }      
    }
    
    /**
@@ -67,8 +65,7 @@ public class MasterDeck
      * Remove and return the top Card on the Deck
      * @return A reference to a Card that was top on the Deck
      */
-   public Card dealCard()
-   {
+   public Card dealCard(){
       Card c = deck.remove(0);  //  remove it (returns removed object)
       return c;
    }
@@ -76,17 +73,14 @@ public class MasterDeck
      * Return current number of Cards in Deck
      * @return number of Cards in Deck
      */
-
-   public int cardsRemaining()
-   {  
+   public int cardsRemaining(){  
       return deck.size();
    }
    
    /** 
-   * Randomize the order of Cards in Deck
-   */
-   public void shuffle()
-   {
+    * Randomize the order of Cards in Deck
+    */
+   public void shuffle(){
       int randNum;
       Card temp;
       Random r = new Random();
@@ -98,26 +92,13 @@ public class MasterDeck
          deck.set(randNum,temp);
       }      
    }
+   
    /** 
      * Determine if Deck is empty
      * @return true if there are no more cards, false otherwise
-     */
-   
-   public boolean isEmpty()
-   {
+     */  
+   public boolean isEmpty(){
       return (deck.size() == 0);
    }
-
-   public static void main(String [] args) 
-   {
-      MasterDeck deck = new MasterDeck();
-      deck.freshDeck();
-      deck.shuffle();
-      System.out.println(deck.isEmpty());
-      
-      for(int i=0; i<52 ;i++){
-          System.out.println(deck.getCard(i).getValue());
-      }
-      
-   }
+  
 }
