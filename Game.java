@@ -8,6 +8,9 @@ public class Game{
     private MasterDeck pile1 = new MasterDeck();
     private MasterDeck pile2 = new MasterDeck();
     
+    private Card player1Card;
+    private Card player2Card;
+    
     /** game constructor
     */
     public Game(){
@@ -97,19 +100,21 @@ public class Game{
         pile1.addCard(0,player1.dealCard());
         pile2.addCard(0,player2.dealCard());
         
+        
+        
         System.out.println("Player 1: "+pile1.getCard(0).getValue()+
         "   Player 2: "+pile2.getCard(0).getValue());
                 
         // if player1 wins
         if(pile1.getCard(0).getValue() > pile2.getCard(0).getValue()){
             // add cards to player2's deck
-            takePile(player2);
-            
+            takePile(player2);          
+
             winner = "player1";
             return winner;
         }
         
-        // ok, this looks really confusing but it is just comparing
+        // ok, this looks really confusing but it is just comparing the values of the two cards
         else if(pile2.getCard(0).getValue() > pile1.getCard(0).getValue()){
             // add cards to player2's deck
             takePile(player1);
@@ -128,6 +133,10 @@ public class Game{
      *
      */
     public void takePile(MasterDeck player){
+        // save the cards for the gui
+        player1Card = pile1.getCard(0);
+        player2Card = pile2.getCard(0);
+    
         for(int i = 0;i<pile1.cardsRemaining();i++){
             player.addCard(pile1.dealCard());
         }
@@ -164,6 +173,15 @@ public class Game{
     public MasterDeck getPile2(){
         return pile2;
     }
+    
+    public Card getP1Card(){
+        return player1Card;
+    }
+    
+    public Card getP2Card(){
+        return player2Card;
+    }
+
  
     public static void main(String Args[]){
         Game game = new Game();
