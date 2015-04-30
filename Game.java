@@ -21,7 +21,8 @@ public class Game implements Gameable{
     private Card player1Card;
     private Card player2Card;
     
-    /** game constructor: deals out the cards to the players
+    /** 
+    *game constructor: deals out the cards to the players
     */
     public Game(){
         try{
@@ -47,7 +48,8 @@ public class Game implements Gameable{
         
     }
     
-    /** deal the cards to the players
+    /** 
+     * deal the cards to the players
      *
      */
     public void deal(){
@@ -60,7 +62,8 @@ public class Game implements Gameable{
        
     }
     
-    /** A general play between the two players. two cards from each of the players 
+    /** 
+    * A general play between the two players. two cards from each of the players 
       *  decks are pulled and placed in their rescective piles. 
       *  when a war happens it calls war();
       */
@@ -99,7 +102,8 @@ public class Game implements Gameable{
             war();
     }
     
-    /** War. If another war happens within war() it simply makes a recursive call of war().
+    /** 
+    * War. If another war happens within war() it simply makes a recursive call of war().
      *
      */
     public void war(){
@@ -147,7 +151,8 @@ public class Game implements Gameable{
         
     }
     
-    /** take all cards in pile
+    /** 
+    *take all cards in pile
      *  @param player the deck of a player
      */
     public void takePile(MasterDeck player){
@@ -164,35 +169,40 @@ public class Game implements Gameable{
         }
     }
     
-    /** get player1. returns the deck of player 1
+    /** 
+    *get player1. returns the deck of player 1
      * @return the deck of player 1
      */
     public MasterDeck getPlayer1(){
         return player1;
     } 
     
-    /** get player2
+    /** 
+    *get player2
      *  @return player2 the deck of player 2
      */
     public MasterDeck getPlayer2(){
         return player2;
     }
     
-    /** get pile1. returns the card pile for player 1
+    /** 
+    *get pile1. returns the card pile for player 1
      * @return pile1 the card pile for player 1
      */
     public MasterDeck getPile1(){
         return pile1;
     }
     
-    /** get pile2. returns the pile for player 2
+    /** 
+    *get pile2. returns the pile for player 2
      * @return pile2 the card pile for player 2
      */
     public MasterDeck getPile2(){
         return pile2;
     }
   
-    /** get the played card of player 1 for GUI
+    /** 
+    *get the played card of player 1 for GUI
      * @return player1Card the played card for player 1
      */
     public Card getP1Card(){
@@ -206,14 +216,16 @@ public class Game implements Gameable{
         return player2Card;
     }
     
-    /** get messaage for the status of the game
+    /** 
+    * get messaage for the status of the game
      * @return message the game status
      */
     public String getMessage(){
         return message;
     }
     
-    /** set messaage for the status of the game
+    /** 
+    *set messaage for the status of the game
      * @param message the game status
      */
     public void setMessage(String message){

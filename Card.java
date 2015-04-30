@@ -25,11 +25,11 @@ public class Card implements Cardable{
     // card rank value
     private int value;
     
-    /*
-        Card method : when the constructor is called the card suit and rank is determined by the 
-        card number.
-        @param num the number out of 52 in the deck
-    **/
+    /**
+        * Card method : when the constructor is called the card suit and rank is determined by the 
+        * card number.
+        * @param num the number out of 52 in the deck
+    */
     public Card(int num){
         // make constant
         int SUIT_LENGTH = 13;
@@ -42,8 +42,8 @@ public class Card implements Cardable{
     }
     
     /*
-        sets the card 
-        @param num the number to be set of the card
+        *  set card : sets the card 
+        * @param num the number to be set of the card
     **/
     public void setCard(int num){
         // make variables
@@ -54,32 +54,32 @@ public class Card implements Cardable{
     }
     
     /*
-        gets the current card 
-        @return suit the current suit of the card
+        * gets the current card 
+        * @return suit the current suit of the card
     **/
     public String getSuit(){
         return suit;
     }
     
     /*
-        gets the card 
-        @return rank the current rank of the card
+        * gets the card 
+        * @return rank the current rank of the card
     **/
     public String getRank(){
         return rank;
     }
     
     /*
-        gets the file name of a card 
-        @return rank+suit+".jpg" the file name
+        * gets the file name of a card 
+        * @return rank+suit+".jpg" the file name
     **/       
     public String getFrontFile(){
       return rank + suit + ".jpg";
     }
     
     /*
-        gets the current value of the card 
-        @return value the current value of the card
+        * gets the current value of the card 
+        * @return value the current value of the card
     **/
     public int getValue(){
         return value;

@@ -37,7 +37,8 @@ public class GameGUI extends JFrame implements GUIable{
     private final int CARDHEIGHT = 250;
     private final int CARDWIDTH = 152;
     
-    /** the constructor of the game GUI it makes an instance of the game
+    /** 
+     * the constructor of the game GUI it makes an instance of the game
      *  and sets up the panels
      */
     public GameGUI(){
@@ -58,7 +59,8 @@ public class GameGUI extends JFrame implements GUIable{
 
     }
     
-    /** updates the cards in the piles that are being shown
+    /** 
+    * updates the cards in the piles that are being shown
      * 
      */
     public void updatePiles(){
@@ -82,7 +84,8 @@ public class GameGUI extends JFrame implements GUIable{
 
     }
     
-    /** CardSetup sets up the cards in the CardPanel
+    /** 
+    * CardSetup sets up the cards in the CardPanel
      * 
      */
     public void CardSetup(){
@@ -132,7 +135,8 @@ public class GameGUI extends JFrame implements GUIable{
         }
     }
     
-    /** sets up the button and the status message
+    /** 
+     *sets up the button and the status message
      * 
      */
     public void ButtonPanelSetup(){
@@ -159,7 +163,8 @@ public class GameGUI extends JFrame implements GUIable{
     
     // private inner class 
     class ButtonListener implements ActionListener{
-        /** actionPerformed: once an action has been detected it does the code in this method
+        /** 
+        * actionPerformed: once an action has been detected it does the code in this method
           * @param e the event performed
           */
         public void actionPerformed (ActionEvent e){  
