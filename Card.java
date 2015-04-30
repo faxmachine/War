@@ -1,3 +1,10 @@
+/**
+Ben Carroll 
+4/29/15
+Description: depending on the integer value entered in the constructor, a card is made from a 
+choice of 52 cards.
+*/
+
 import java.util.*;
 
 public class Card{   
@@ -19,8 +26,9 @@ public class Card{
     private int value;
     
     /*
-        when the constructor is called the card suit and rank is determined by the 
+        Card method : when the constructor is called the card suit and rank is determined by the 
         card number.
+        @param num the number out of 52 in the deck
     **/
     public Card(int num){
         // make constant
@@ -35,6 +43,7 @@ public class Card{
     
     /*
         sets the card 
+        @param num the number to be set of the card
     **/
     public void setCard(int num){
         // make variables
@@ -44,36 +53,36 @@ public class Card{
         rank = ranks[num%SUIT_LENGTH];     
     }
     
+    /*
+        gets the current card 
+        @return suit the current suit of the card
+    **/
     public String getSuit(){
         return suit;
     }
     
+    /*
+        gets the card 
+        @return rank the current rank of the card
+    **/
     public String getRank(){
         return rank;
     }
     
-    public String getFace(){
-        // determine what file to use for wheather the card is
-        // face up or down
-        if(face_up == true)
-            return getFrontFile();
-        else
-            return CARD_BACK;
-    }
-        
+    /*
+        gets the file name of a card 
+        @return rank+suit+".jpg" the file name
+    **/       
     public String getFrontFile(){
       return rank + suit + ".jpg";
     }
     
+    /*
+        gets the current value of the card 
+        @return value the current value of the card
+    **/
     public int getValue(){
         return value;
     }
-    
-    public static void main(String Args[]){
-        Card c = new Card(51);
-        
-        System.out.println(c.getFrontFile());
-    }
-
     
 }

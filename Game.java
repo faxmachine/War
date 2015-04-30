@@ -1,3 +1,9 @@
+/**
+Ben Carroll 
+4/29/15
+Description: This is the class for an instance of a game of war..
+*/
+
 import java.util.*;
 
 public class Game{
@@ -8,24 +14,34 @@ public class Game{
     private MasterDeck pile1 = new MasterDeck();
     private MasterDeck pile2 = new MasterDeck();
     
+    // set the initial message value
+    private String message = "Click the button to play!";
+    
+    // the played cards of each player. This will help with the GUI later
     private Card player1Card;
     private Card player2Card;
     
-    /** game constructor
+    /** game constructor: deals out the cards to the players
     */
     public Game(){
+        try{
         // populate the deck
         master.freshDeck();
         System.out.println("Master Deck has been populated");
         
-        // shuffle the cards
+                // shuffle the cards
         master.shuffle();
         System.out.println("Master Deck has been shuffled");
         
         // deal the cards
         deal();
         System.out.println("Cards have been dealt to the players");
+        }
         
+        catch(IndexOutOfBoundsException e){
+            System.out.println(e.getMessage());
+        }
+
         
         
         
@@ -45,10 +61,10 @@ public class Game{
     }
     
     /** A general play between the two players. two cards from each of the players 
-      *  decks are pulled and placed in their rescective piles
-      *  @return winner the winner of the play
+      *  decks are pulled and placed in their rescective piles. 
+      *  when a war happens it calls war();
       */
-    public String play(){
+    public void play(){
         // make a string for the winner
         String winner;
        
@@ -63,29 +79,30 @@ public class Game{
         // if player1 wins
         if(pile1.getCard(0).getValue() > pile2.getCard(0).getValue()){
             // add cards to player2's deck
-            takePile(player2);
+            takePile(player1);
             
-            winner = "player1";
-            return winner;
+            //return winner;
+            message = "The winner is player 1";
         }
             
         else if(pile2.getCard(0).getValue() > pile1.getCard(0).getValue()){
             // add cards to player2's deck
-            takePile(player1);
+            takePile(player2);
             
-            winner = "player2";
-            return winner;
+            //return winner;
+            message = "The winner is player 2";
         }
         
         // otherwise there is a war
         else
-            return war();
+            //return war();
+            war();
     }
     
-    /** War
+    /** War. If another war happens within war() it simply makes a recursive call of war().
      *
      */
-    public String war(){
+    public void war(){
         // let the war be known in the console
         System.out.println("War!");
         
@@ -101,36 +118,37 @@ public class Game{
         pile2.addCard(0,player2.dealCard());
         
         
-        
-        System.out.println("Player 1: "+pile1.getCard(0).getValue()+
-        "   Player 2: "+pile2.getCard(0).getValue());
+        // print the progress to the command line
+        System.out.println("Player 1 card value: "+pile1.getCard(0).getValue()+
+        "   Player 2 card value: "+pile2.getCard(0).getValue());
                 
         // if player1 wins
         if(pile1.getCard(0).getValue() > pile2.getCard(0).getValue()){
             // add cards to player2's deck
-            takePile(player2);          
+            takePile(player1);          
 
-            winner = "player1";
-            return winner;
+            message = "There has been a war! Play one card face down then one up. The winner is player 1";
+            //return winner;
         }
         
         // ok, this looks really confusing but it is just comparing the values of the two cards
         else if(pile2.getCard(0).getValue() > pile1.getCard(0).getValue()){
             // add cards to player2's deck
-            takePile(player1);
+            takePile(player2);
             
-            winner = "player2";
-            return winner;
+            winner = "There has been a war! Play one card face down then one up. The winner is player 2";
+            //return winner;
         }
         
         // otherwise there is a war
         else 
-           return  war();
+           //return  war();
+           war();
         
     }
     
     /** take all cards in pile
-     *
+     *  @param player the deck of a player
      */
     public void takePile(MasterDeck player){
         // save the cards for the gui
@@ -146,49 +164,60 @@ public class Game{
         }
     }
     
-    /** get player1
-     *
+    /** get player1. returns the deck of player 1
+     * @return the deck of player 1
      */
     public MasterDeck getPlayer1(){
         return player1;
     } 
     
     /** get player2
-     *
+     *  @return player2 the deck of player 2
      */
     public MasterDeck getPlayer2(){
         return player2;
     }
     
-    /** get pile1
-     *
+    /** get pile1. returns the card pile for player 1
+     * @return pile1 the card pile for player 1
      */
     public MasterDeck getPile1(){
         return pile1;
     }
     
-    /** get pile2
-     *
+    /** get pile2. returns the pile for player 2
+     * @return pile2 the card pile for player 2
      */
     public MasterDeck getPile2(){
         return pile2;
     }
-    
+  
+    /** get the played card of player 1 for GUI
+     * @return player1Card the played card for player 1
+     */
     public Card getP1Card(){
         return player1Card;
     }
     
+    /** get the played card of player 2 for GUI
+     * @return player2Card the played card for player 2
+     */
     public Card getP2Card(){
         return player2Card;
     }
-
- 
-    public static void main(String Args[]){
-        Game game = new Game();
-        
-        game.deal();
-        
-        System.out.println(game.play());
-        
+    
+    /** get messaage for the status of the game
+     * @return message the game status
+     */
+    public String getMessage(){
+        return message;
     }
+    
+    /** set messaage for the status of the game
+     * @param message the game status
+     */
+    public void setMessage(String message){
+        this.message = message;
+    }
+ 
 }

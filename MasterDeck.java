@@ -63,7 +63,7 @@ public class MasterDeck {
    
    /** 
      * Remove and return the top Card on the Deck
-     * @return A reference to a Card that was top on the Deck
+     * @return c reference to a Card that was top on the Deck
      */
    public Card dealCard(){
       Card c = deck.remove(0);  //  remove it (returns removed object)
