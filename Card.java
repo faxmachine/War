@@ -7,7 +7,7 @@ choice of 52 cards.
 
 import java.util.*;
 
-public class Card{   
+public class Card implements Cardable{   
     // all of the possible suits and ranks
     private String[] suits = {"h","d","c","s"};
     private String[]  ranks = {"ace","2","3","4","5","6","7","8","9","10","jack","queen","king"};

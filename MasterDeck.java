@@ -8,7 +8,7 @@
 import java.util.Random;
 import java.util.ArrayList;
 
-public class MasterDeck {
+public class MasterDeck implements Deckable {
    /** 
    *  Number of cards in standard deck {@value #CARDS_IN_DECK}
    **/

@@ -6,7 +6,7 @@ Description: This is the class for an instance of a game of war..
 
 import java.util.*;
 
-public class Game{
+public class Game implements Gameable{
     // make fields: deck and player decks;
     private MasterDeck master = new MasterDeck();
     private MasterDeck player1 = new MasterDeck();

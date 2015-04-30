@@ -13,7 +13,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class GameGUI extends JFrame{
+public class GameGUI extends JFrame implements GUIable{
     // make instance of the game
     private Game game = new Game();
 
